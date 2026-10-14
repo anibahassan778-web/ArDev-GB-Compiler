@@ -1,0 +1,18 @@
+{
+  "gameTitle": "POKEMON YELLOW",
+  "engineCore": "SameBoy (by Lior Halphon / LIJI32)",
+  "license": "Expat / MIT License",
+  "cartridgeType": 27,
+  "mbcDriver": "MBC5",
+  "hasBattery": true,
+  "hasRtc": false,
+  "hasRumble": false,
+  "isCgb": true,
+  "romBanks": 64,
+  "ramBanks": 4,
+  "prunedModules": [
+    "Foreign SameBoy Drivers (MBC1, MBC2, MBC3)",
+    "SameBoy RTC Timer Subsystem",
+    "SameBoy Rumble Controller & Android Vibrator Hook"
+  ]
+}
