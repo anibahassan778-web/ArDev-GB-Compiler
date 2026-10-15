@@ -1,23 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#090D16">
+    android:orientation="vertical"
+    android:background="@color/screen_bg"
+    android:gravity="center_horizontal">
 
-    <ImageView
-        android:id="@+id/gameScreen"
+    <!-- Game Boy Screen Display Area -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
-        android:scaleType="fitCenter" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:background="#050811"
+        android:padding="8dp">
 
+        <ImageView
+            android:id="@+id/gameScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:contentDescription="Game Boy Screen" />
+    </FrameLayout>
+
+    <!-- Title Badge -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/gameScreen"
-        android:layout_centerHorizontal="true"
         android:text="POKEMON YELLOW · SameBoy (MIT)"
-        android:textColor="#64748B"
-        android:textSize="11sp" />
-</RelativeLayout>
+        android:textColor="@color/text_subtle"
+        android:textSize="11sp"
+        android:fontFamily="monospace"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Touch Controls Area -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <!-- D-Pad (Left Side) -->
+        <RelativeLayout
+            android:id="@+id/dpadContainer"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
+
+            <!-- Up -->
+            <View
+                android:id="@+id/btnUp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btn_dpad" />
+
+            <!-- Down -->
+            <View
+                android:id="@+id/btnDown"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/btn_dpad" />
+
+            <!-- Left -->
+            <View
+                android:id="@+id/btnLeft"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_dpad" />
+
+            <!-- Right -->
+            <View
+                android:id="@+id/btnRight"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_dpad" />
+
+            <!-- Center cross fill -->
+            <View
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_centerInParent="true"
+                android:background="@color/control_bg" />
+        </RelativeLayout>
+
+        <!-- Action Buttons A & B (Right Side) -->
+        <RelativeLayout
+            android:id="@+id/actionButtonsContainer"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <!-- B Button -->
+            <TextView
+                android:id="@+id/btnB"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/btn_action"
+                android:gravity="center"
+                android:text="B"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- A Button -->
+            <TextView
+                android:id="@+id/btnA"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/btn_action"
+                android:gravity="center"
+                android:text="A"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Select & Start Buttons (Bottom Center) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/btnSelect"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
+                android:background="@drawable/btn_fn"
+                android:gravity="center"
+                android:text="SELECT"
+                android:textColor="#94A3B8"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/btnStart"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
+                android:background="@drawable/btn_fn"
+                android:gravity="center"
+                android:text="START"
+                android:textColor="#94A3B8"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

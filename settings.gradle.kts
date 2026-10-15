@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "pokemon_yellow_gb"
+rootProject.name = "pokemonyellowGame"
 include(":app")

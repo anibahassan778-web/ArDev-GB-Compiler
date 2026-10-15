@@ -7,4 +7,8 @@ echo "Emulation Core: SameBoy (MIT License)"
 echo "====================================================="
 
 chmod +x gradlew 2>/dev/null || true
-./gradlew assembleRelease
+if command -v gradle >/dev/null 2>&1; then
+  gradle assembleRelease
+else
+  ./gradlew assembleRelease
+fi

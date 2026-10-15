@@ -12,7 +12,7 @@ static uint32_t g_frame_buffer[160 * 144];
 extern "C" {
 
 JNIEXPORT void JNICALL
-Java_com_ardev_gb_pokemon_yellow_MainActivity_nativeInit(
+Java_com_ardev_gb_pokemonyellow_MainActivity_nativeInit(
     JNIEnv *env, jobject thiz, jbyteArray rom_bytes, jboolean is_cgb) {
     jsize len = env->GetArrayLength(rom_bytes);
     jbyte *bytes = env->GetByteArrayElements(rom_bytes, nullptr);
@@ -21,14 +21,14 @@ Java_com_ardev_gb_pokemon_yellow_MainActivity_nativeInit(
 }
 
 JNIEXPORT void JNICALL
-Java_com_ardev_gb_pokemon_yellow_MainActivity_nativeStepFrame(
+Java_com_ardev_gb_pokemonyellow_MainActivity_nativeStepFrame(
     JNIEnv *env, jobject thiz, jintArray pixel_out) {
     sameboy_step_frame(&g_gameboy, g_frame_buffer);
     env->SetIntArrayRegion(pixel_out, 0, 160 * 144, (const jint *)g_frame_buffer);
 }
 
 JNIEXPORT void JNICALL
-Java_com_ardev_gb_pokemon_yellow_MainActivity_nativeSetJoypad(
+Java_com_ardev_gb_pokemonyellow_MainActivity_nativeSetJoypad(
     JNIEnv *env, jobject thiz, jint buttons) {
     sameboy_set_joypad(&g_gameboy, (uint8_t)buttons);
 }

@@ -22,9 +22,11 @@ void sameboy_init(GB_gameboy_t *gb, const uint8_t *rom_data, size_t rom_size, bo
 
 void sameboy_step_frame(GB_gameboy_t *gb, uint32_t *frame_buffer) {
     uint32_t colors[4] = { 0xFFE0F8D0, 0xFF88C070, 0xFF346856, 0xFF081820 };
+    static uint32_t tick = 0;
+    tick++;
     for (int y = 0; y < 144; y++) {
         for (int x = 0; x < 160; x++) {
-            frame_buffer[y * 160 + x] = colors[(x + y) % 4];
+            frame_buffer[y * 160 + x] = colors[(x + y + (tick / 8)) % 4];
         }
     }
 }

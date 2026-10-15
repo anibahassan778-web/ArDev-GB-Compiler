@@ -4,4 +4,4 @@ Emulation Engine: **SameBoy Core** (MIT License, Copyright (c) 2015-2026 Lior Ha
 
 - **Target Android**: API 21 to 34 (Android 14)
 - **Native NDK**: SameBoy C/C++ cycle-accurate core (PPU, APU, LR35902 CPU, MBC5)
-- **Offline Gameplay**: 100% self-contained with persistent battery SRAM saves
+- **Offline Gameplay**: 100% self-contained with touch controls and persistent battery SRAM saves

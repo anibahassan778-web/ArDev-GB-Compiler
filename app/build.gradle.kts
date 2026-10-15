@@ -4,11 +4,12 @@ plugins {
 }
 
 android {
-    namespace = "com.ardev.gb.pokemon_yellow"
+    namespace = "com.ardev.gb.pokemonyellow"
     compileSdk = 34
+    ndkVersion = "25.2.9519653"
 
     defaultConfig {
-        applicationId = "com.ardev.gb.pokemon_yellow"
+        applicationId = "com.ardev.gb.pokemonyellow"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
@@ -19,7 +20,7 @@ android {
         }
         externalNativeBuild {
             cmake {
-                cppFlags("-std=c++17 -O3 -Wall")
+                cppFlags("-std=c++17", "-O3", "-Wall")
             }
         }
     }
@@ -33,12 +34,8 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isMinifyEnabled = false
+            isShrinkResources = false
             signingConfig = signingConfigs.getByName("debug")
         }
     }
@@ -54,5 +51,4 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.11.0")
 }
